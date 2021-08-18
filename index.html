@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/styles.css">
+    <title>JavaScript Interview Questions - Advanced</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-2">
+          </div>
+          <div class="col-xs-10">
+            <h1 class="text-center">Advanced JavaScript Concepts</h1>
+          </div>
+        </div>
+        <div class="row mySection">
+          <div class="col-xs-2">
+          </div>
+          <div class="col-xs-10">
+                <!--return in javascript-->
+                <div class="bigWord NameValePair">
+                    What is the purpose of return in JavaScript?
+                    <div class="defn NameValuePair">
+                        The return statement stops the execution of a function and returns a value from that function.
+                        <code>
+
+                        </code>
+                    </div>
+                </div>            
+                <!--Name Value Pair-->
+                <div class="bigWord NameValePair">
+                    What is Name Value pair in JavaScript?
+                    <div class="defn NameValuePair">
+                        A name which maps to a unique value. Example <code>address = "61 Kenbrook Dr." or color:red; color:black;</code>
+                    </div>
+                </div>
+                <!--Functions vs Methods-->
+                <div class="bigWord Object">
+                    What is the difference between method and function?
+                    <div class="defn Object">
+                        In JavaScript every function is an object. An object is a collection of key:value pairs. If a value is a primitive (number, string, boolean), or another object, the value is considered a property. If a value is a function, it is called a 'method'.
+                        In a semantic sense, a method is simply a function that belongs to an object or class. A method is invoked by using dot
+                        notation.
+                    </div>
+                </div>                
+                <!--callback functions-->
+                <div class="bigWord Object">
+                    What is callback functions and why we use it?
+                    <div class="defn Object">
+                        A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action. 
+                        <br>
+                        Callbacks make sure that a function is not going to run before a task is completed but will run right after the task has completed. It helps us develop asynchronous JavaScript code and keeps us safe from problems and errors.
+                    </div>
+                </div>                   
+                <!--Parameters vs Arguments-->
+                <div class="bigWord Object">
+                    What is the difference between arguments and parameters?
+                    <div class="defn Object">
+                        When talking about functions, the terms parameters and arguments are often interchangeably used as if it were one and the same thing but there is a very subtle difference. Parameters are variables listed as a part of the function definition. Arguments are values passed to the function when it is invoked.
+                        <code>
+                            const someFunction = function (param1, param2){ <br>
+                                some statements <br>
+                            } <br>
+                            someFunction(arg1, arg2,) <br>
+                            <hr>
+                            
+                            const someFunction = function (para1= "Hi", param2 = "Dani", param3 = "Happy Birthday"){ <br>
+                                console.log(Para1, para2, para3)<br>
+                            } <br>
+                            someFunction("Hello", "Darius" ) <br>
+
+                        </code>
+                        <ul>
+                            <li>Function parameters are the names listed in the function's definition</li>
+                            <li> Function arguments are the real values passed to the function</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <!--Function declration vs Function expression-->
+                <div class="bigWord NameValePair">
+                    What is the difference between function declaration and function expression in javascript?
+                    <div class="defn NameValuePair">
+                        A function expression is very similar to and has almost the same syntax as a function declaration. 
+                        The main difference between a function expression and a function declaration is the function name, which can be omitted in function expressions to create anonymous functions. <br>
+                        A function expression can be used as an IIFE (Immediately Invoked Function Expression) which runs as soon as it is defined. 
+                        <br>
+                        Function expressions in JavaScript are not hoisted, unlike function declarations. <br>
+                        Just as Variable Declarations must start with “var”, "let", or "const", Function Declarations must begin with “function”.
+                         but a function expression can be stored in a variable:
+                        <code> <br>
+                            someFunction(); // TypeError: someFunction is not a function<br>
+                            var someFunction = function(){ <br>
+                            console.log("some thing!!!");
+                            }
+
+                        </code>
+                    </div>
+                </div>
+                <!--Hoisting-->
+                <div class="bigWord Object">
+                    What is hoisting in JavaScript?
+                    <div class="defn Object">
+                        JavaScript engine setup a memory space for variables and functions before entire code is running. Example if we run the following codes, the second code output is undefined because memory space for a is already setup <code>var a="helloWorld!!!";<br /> console.log(a);<br /> <output style=" color:#000fff; display:inline; font-style: italic;">"HelloWorld"</output></code>
+                        <code>console.log(a);<br /> var a="helloWorld!!!";<br /> <output style=" color:#000fff; display:inline; font-style: italic;">undefined</output></code>
+                        <code>console.log(a); <br /> <output style=" color:#000fff; display:inline; font-style: italic;"> Uncaught ReferenceError: a is not defined</output></code>
+                        <strong>Hoisting is variables setup (and set equal to undefined) and functions setup</strong>
+                    </div>
+                </div>       
+               <!--Arrow Functions-->
+               <div class="bigWord Lexical">
+                What are arrow functions? and in what situations does arrow functions doesn't works?
+                <div class="defn Lexical">
+                    An arrow function expression is a compact alternative to a traditional function expression, 
+                    but is limited and can't be used in all situations.
+                    <ul>
+                        <li>Does not have its own bindings to this or super, and should not be used as methods.</li>
+                        <li>Does not have new.target keyword</li>
+                        <li>Not suitable for call, apply and bind methods, which generally rely on establishing a scope.</li>
+                        <li>Can not be used as constructors.</li>
+                        <li>Can not use yield, within its body.</li>
+                    </ul>
+                    <code>
+                        const materials = ['Hydrogen',  'Helium',  'Lithium',  'Beryllium']; <br>
+                        console.log(materials.map(material => material.length));
+                    </code> <br>
+                    <hr>
+                    <code>
+                        function (x) { return x + 100;} //traditional <br>
+                        x=>return x+100; // arrow functions
+                    </code>
+                </div>
+            </div>                      
+                 <!--Lexical Environment-->
+                  <div class="bigWord Lexical">
+                      What is Lexical Environment?
+                      <div class="defn Lexical">
+                          It is an environment where something sits physically in the code you write.
+                          It is something you do with words or grammers. For instance
+                          <code>function selam(){var x="morning"}</code> The variable x sits lexically on selam function.
+                          <strong>A new lexical scope is created everytime you type a function definition. Only curly you defined in a function creates a new scope.</strong>
+                      </div>
+                  </div>
+                  <!--Execution Context-->
+                  <div class="bigWord Execution">
+                      What is Execution Context?
+                      <div class="defn Execution">
+                          A wrapper to help manage the code that is running. There are lots of lexical environment. Which one is currently running is managed by execution environment. When JS is executed an execution context is created. At the base level (when you are not in a function), global object (window in case of browser), this (special variable), outer environment are created. Finally the execution context is running your code. There are two phases in execution context. First phase : Creation Phase: variables, functions and memory are set up. Second phase:Execution phase: Running code line by line.
+                          <strong>It differs from lexical scope because it built as the code runs</strong>
+                      </div>
+                  </div>
+                  <!--event bubbling.-->
+                  <div class="bigWord EventBubbling">
+                      Describe event bubbling.
+                      <div class="defn EventBubbling">
+                          With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+                          <code></code>
+                          with capturing, the opposite, the event is first captured in the outer most element and then propagated to inner elements.
+                      </div>
+                  </div>
+                  <!--Undefined-->
+                  <div class="bigWord Undefined">
+                      What is undefined in JavaScript?
+                      <div class="defn Undefined">
+                          It is a special keyword is JS and it has a memory space but a value hasn't been set.
+                          <code>console.log(a);<output style=" color:#000fff; display:inline; font-style: italic;">Uncaught ReferenceError: a is not defined</output> </code>
+                          <code>var a; console.log(a);<output style=" color:#000fff; display:inline; font-style: italic;">undefined</output> </code>
+                      </div>
+                  </div>
+                  <!--single threaded-->
+                  <div class="bigWord SingleThreaded">
+                      What does single threaded means in JS?
+                      <div class="defn SingleThreded">
+                          It means execution of one command at a time. It's synchronous
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--invocation-->
+                  <div class="bigWord Invocation">
+                      What does invocation mean in JS?
+                      <div class="defn Invocation">
+                          It means running a function. In JavaScript we invoke a function by using function name with parenthesis. Every time a function is called a new execution context is created for that function
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--varible environment-->
+                  <div class="bigWord VariableEnvt">
+                      What is variable environment?
+                      <div class="defn VariableEnvt">
+                          It is a place where variables live and how they relate to each other with memory.
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--scope-->
+                  <div class="bigWord Scope">
+                      What is scope in JavaScript?
+                      <div class="defn Scope">
+                          it is a place where variable is available in your code.
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--namespace-->
+                  <div class="bigWord NameSpace">
+                      What is namespace?
+                      <div class="defn NameSpace">
+                          A container for variables and functions.
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--first class functions-->
+                  <div class="bigWord FirstClassFunctions">
+                      What does first class function mean?
+                      <div class="defn FirstClassFunctions">
+                          Everything you can do with other types (Number, String, Object, Boolean etc) you can do with functions.<strong>Expression is a unit of code that results in a value.</strong>
+                          <code></code>
+                      </div>
+                  </div>
+                   <!--Object-->
+                <div class="bigWord Object">
+                    What is object in JavaScript?
+                    <div class="defn Object">
+                        In JavaScript, an object is a standalone entity, with properties and type. Compare it with a cup, for example. A cup is an object, with properties. A cup has a color, a design, weight, a material it is made of, etc. The same way, JavaScript objects can have properties, which define their characteristics.
+                        <code> <br>
+                            Creating an objects by using object literals <br>
+                            let myObj = {<br>
+                                &nbsp;  color: "red",<br>
+                                &nbsp; address: "41E Fort St",<br>
+                                &nbsp; language:function(){<br>
+                                    &nbsp; &nbsp;     console.log("Geez Speaking")<br>
+                                &nbsp; }<br>
+                            }<br>
+                        </code>
+                        Each name/value pair must be separated by a comma, and the name and value in each case are separated by a colon.
+                    </div>
+                </div>
+                 <!--Accessing Properties-->
+                 <div class="bigWord Object">
+                    What are the different types of accessing properties in Javascript object? and their difference.
+                    <div class="defn Object">
+                       There are two ways to access properties in an object i.e. dot notation and bracket notation.
+                       There difference is 
+                       <ul>
+                           <li>Dot notation is faster to write and clearer to read</li>
+                           <li>Square bracket notation allows access to properties containing special characters and selection of properties using variables</li>
+                       </ul> Creating an objects by using object literals
+                        <code> <br>
+                             
+                            let myObj = {<br>
+                                &nbsp;  color: "red",<br>
+                                &nbsp; address: "41E Fort St",<br>
+                                &nbsp; language:function(){<br>
+                                    &nbsp; &nbsp;     console.log("Geez Speaking")<br>
+                                &nbsp; }<br>
+                            }
+                        </code>
+                        
+                        <code>
+                            <br>
+                            myObj.color  //red <br>
+                            myObj['color'] //red <br>
+                            var foo = myForm.foo[]; // incorrect syntax <br>
+                            var foo = myForm["foo[]"]; // correct syntax <br>
+                            var foo = myResponse.bar.Baz; // incorrect syntax <br>
+                            var foo = myResponse["bar.Baz"]; // correct syntax <br>
+                        </code>
+                    </div>
+                </div>
+               
+               <!--this identifier-->
+                  <div class="bigWord thisKeyWord">
+                      What is the keyword <strong>this</strong> refers to in JS?
+                      <div class="defn thisKeyword">
+                          <ul>
+                              <li>The <em>this</em> keyword refers to the current object the code is being written inside</li>
+                              <li>
+                                  In the global execution context (outside of any function), <em>this</em> refers to the global object whether in strict mode or not.
+                                  <code>
+                                    console.log(this === window); // true     
+                               </code>
+                              </li>
+                              <li>Inside a function, the value of this depends on how the function is called.</li>
+                              <ul>
+                              <li>
+                                  In a non strict mode, in a function, the value of this is not set by the call, this will default to the global object, which is window in a browser.
+                                  <code><br>
+                                    function f1() {<br>
+                                        return this;<br>
+                                      }<br>
+                                      
+                                      // In a browser:<br>
+                                      f1() === window; // true<br>
+                                      
+                                      // In Node:<br>
+                                      f1() === globalThis; // true
+                                  </code>
+
+                              </li>
+                              <li>
+                                In strict mode, however, if the value of this is not set when entering an execution context, it remains as undefined.
+                                <code> <br>
+                                    function f2() {<br>
+                                        'use strict'; // see strict mode<br>
+                                        return this;<br>
+                                      }<br>
+                                      
+                                      f2() === undefined; // true
+                                      
+                                </code>
+                              </li>
+                            </ul>
+                          </ul>                          
+                          
+                      </div>
+                  </div>                  
+                  <!--Primitive vs Reference Type-->
+                  <div class="bigWord Prototype">
+                    What is the difference between primitive and reference types?
+                    <div class="defn Prototype">
+                        A variable can hold one of two value types: primitive values or reference values.
+                        <ul>
+                            <li>Primitive values are data that are stored on the stack, it is stored directly in the location that the variable accesses. Primitive types include undefined, null, boolean, number, string, symbol</li>
+                            <li>Reference values are objects that are stored in the heap, reference value stored in the variable location is a pointer
+                                to a location in memory where the object is stored.
+                            </li>
+                            <li>In the case of Reference types Variables actually don't have the actual values but it contains a reference to that particular value.</li>
+                            <li>Reference simply means a pointer to another memory location that holds particular value. </li>
+                            
+                            <li>Refernce types consists of arrays, objects and function</li>
+                        </ul>
+                        <code>
+                                //primitives <br>
+                                let userOne = "Dandi"; <br>
+                                let userTwo = userOne; <br>
+                                console.log(`${userOne} - ${userTwo}`); // Dandi - Dandi <br>
+                                userOne = "Bambu"; <br>
+                                console.log(`${userOne} - ${userTwo}`);  //Bambu - Dandi <br>
+                                //References <br>
+                                let userThree = {name: "Darius", age:40}; <br>
+                                let userFour = userThree; <br>
+                                console.log(`${userThree.name} - ${userFour.name}`); //Darius - Darius <br>
+                                userThree.name = "Oscar"; <br>
+                                console.log(`${userThree.name} - ${userFour.name}`); //Oscar - Oscar <br>
+                        </code>
+                    </div>
+                </div>
+                  <!--prototype-->
+                  <div class="bigWord Prototype">
+                      What are prototypes in JS?
+                      <div class="defn Prototype">
+                          They are mechanisms in which JS objects inherit features from each other.
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--Event Delegation-->
+                  <div class="bigWord ">
+                      Explain event delegation?
+                      <div class="defn ">
+                          JavaScript event delegation is a simple technique by which you add a single event handler to a parent element in order to avoid having to add event handlers to multiple child elements. Event delegation allows you to avoid adding event listeners to specific nodes;  instead, the event listener is added to one parent.  That event listener analyzes bubbled events to find a match on child elements.The event delegation helps to simplify event handling by smart use of bubbling and target element. <strong> </strong>
+                          <strong>If there are many element inside one parent, and you want to handle events on them of them - don’t bind handlers to each element. Instead, bind the single handler to their parent, and get the child from event.target.</strong>
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--EventDelegationHow-->
+                  <div class="bigWord EventDelegationHow">
+                      How event delegation works?
+                      <div class="defn EventDelegationHow">
+                          When an event is triggered on an element, for example a mouse click on a button, the same event is also triggered on all of that element’s ancestors. This process is known as event bubbling. the event bubbles up from the originating element to the top of the DOM tree. The target element of any event is the originating element, the button in our example, and is stored in a property of the event object. Using event delegation it’s possible to add an event handler to an element, wait for an event to bubble up from a child element and easily determine from which element the event originated.
+                          <code>
+                              function getEventTarget(e) {
+                              e = e || window.event;
+                              return e.target || e.srcElement;
+                              }
+                          </code>
+                      </div>
+                  </div>
+                  <!--prototype-->
+                  <div class="bigWord Prototype">
+                      Explain how prototypal inheritance works
+                      <div class="defn Prototype">
+                          In JavaScript, the inheritance is prototype-based. That means that there are no classes. Instead, an object inherits from another object.
+                          Prototypes are the mechanism by which JavaScript objects inherit features from one another, and they work differently to inheritance mechanisms in classical object-oriented programming languages.
+                          JavaScript is often described as a prototype-based language — each object has a prototype object, which acts as a template object that it inherits methods and properties from. An object's prototype object may also have a prototype object, which it inherits methods and properties from, and so on. This is often referred to as a prototype chain, and explains why different objects have properties and methods defined on other objects available to them.
+                          When it comes to inheritance, JavaScript only has one construct: objects. Each object has an internal link to another object called its prototype. That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this prototype chain.
+                          <code>
+                              var animal = { eats: true }
+                              var rabbit = { jumps: true }
+                              rabbit.__proto__ = animal  // inherit
+                              alert(rabbit.eats) // true
+                          </code>
+                      </div>
+                  </div>
+                  <!--AMD and commonJS-->
+                  <div class="bigWord AMDCommonJS">
+                      What do you think of AMD vs CommonJS?
+                      <div class="defn ">
+                          <div>
+                              Asynchronous module definition (AMD) is a specification for the programming language JavaScript. It defines an application programming interface (API) that defines code modules and their dependencies, and loads them asynchronously if desired.
+                              Its overall goal is to provide a solution for modular JavaScript that developers can use today.
+                          </div>
+                          <div>
+                              CommonJS are a volunteer working group which aim to design, prototype and standardize JavaScript APIs. To date they've attempted to ratify standards for both modules and packages. The CommonJS module proposal specifies a simple API for declaring modules server-side and unlike AMD attempts to cover a broader set of concerns such as io, filesystem, promises and more. CommonJS is a project that aims to define a series of specifications to help in the development of server-side JavaScript applications.
+                          </div>
+                          <div>
+                              The main difference between AMD and CommonJS lies in its support for asynchronous module loading.
+                          </div>
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--IIFE-->
+                  <div class="bigWord IIFE">
+                      Explain why the following doesn't work as an IIFE:<code>function foo(){ }()</code>. What needs to be changed to properly make it an IIFE?
+                      <div class="defn IIFE">
+                          An immediately-invoked function expression (or IIFE, pronounced "iffy") is a JavaScript programming language idiom which produces a lexical scope using JavaScript's function scoping.It is a JavaScript function that runs as soon as it is defined. It is also an anonymous function that is created and then immediately invoked. It's not called from anywhere else (hence why it's anonymous), but runs just after being created.
+                          when the parser encounters the function keyword, it treats it as a function declaration (statement), and not as a function expression. Because of that
+                          <code>function foo(){ }()</code> doesn't work.
+                          The following are common conventions to explicitly tell the parser to expect an expression.
+                          <code>
+                              (function foo(){ ... }());(function foo(){ ... })(); +function foo(){ ... }();!function foo(){ ... }();~function foo(){ ... }();-function foo(){ ... }();
+                          </code>
+                          <strong>
+                              Lexical scoping (sometimes known as static scoping ) is a convention used with many programming languages that sets the scope (range of functionality) of a variable so that it may only be called (referenced) from within the block of code in which it is defined.
+                          </strong>
+                          IIFE is used to place all lirary code inside of a local scope.
+                      </div>
+                  </div>
+             <!--declaration and definition-->
+                  <div class="bigWord Declaration">
+                      What's the difference between a declaration and definition?
+                      <div class="defn Declaration">
+                          Declaration is when you ask a compiler or interpreter to create a new variable give it a name while definition is when you assign a value in that variable.
+                          <code>
+                              var x; // declaration
+                              x = "Selam"; // definition
+                          </code>
+                      </div>
+                  </div>
+                  <!--type coercion-->
+                  <div class="bigWord Coercion">
+                      What's coercion mean in JavaScript?
+                      <div class="defn Coercion">
+                          Type coercion means that when the operands of an operator are different types, one of them will be converted to an "equivalent" value of the other operand's type(123 + "4") or if you do: var x =1; var y=true;
+                          y == x
+                          the boolean operand will be converted to an integer: false becomes 0, true becomes 1. Then the two values are compared.
+                          However, if you use the non-converting comparison operator ===, no such conversion occurs. When the operands are of different types, this operator returns false, and only compares the values when they're of the same type.
+                          <veryImportant style=" font-style: italic;display:block; border:0.2em #123456 dashed; padding:0.5em">
+                              Converting a value from one type to another is often called "type casting," when done explicitly, and "coercion" when done implicitly (forced by the rules of how a value is used).
+                          </veryImportant>
+                      </div>
+                  </div>
+                  <!--undefined, null and not declared-->
+                  <div class="bigWord UndefinedNull">
+                      What's the difference between a variable that is: null, undefined or undeclared?
+                      <div class="defn UndefinedNull">
+                          undefined is a variable that has been declared but no value exists and is a type of itself 'undefined'. null is a value of a variable and is a type of object. We use console.log(); and type of to check if a variable is undefined or null . undeclared variables is a variable that has been declared without var keyword
+                          <code>
+                              null === undefined // false
+                              null == undefined // true
+                              typeof(null); //object
+                              typeof(undefined); //undefined
+                          </code>
+                      </div>
+                  </div>
+                  <!--closure-->
+                  <div class="bigWord Closure">
+                      What is a closure, and how/why would you use one?
+                      <div class="defn Closure">
+                          JavaScript variables can belong to the local or global scope. Private variables can be made possible with closures. Closures are functions that refer to independent (free) variables (variables that are used locally, but defined in an enclosing scope). In other words, these functions 'remember' the environment in which they were created.
+                          <code>
+                              var add = (function () { var counter = 0;
+                              return function () {return counter += 1;}})();
+                          </code>
+                          <strong>
+                              The variable add is assigned the return value of a self-invoking function. The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression. This way add becomes a function. The "wonderful" part is that it can access the counter in the parent scope. This is called a JavaScript closure. It makes it possible for a function to have "private" variables. The counter is protected by the scope of the anonymous function, and can only be changed using the add function.
+                          </strong>
+                      </div>
+                  </div>
+                  <!--anonymous function-->
+                  <div class="bigWord ">
+                      What's a typical use case for anonymous functions?
+                      <div class="defn ">
+                          An anonymous function is a function that is not stored in a program file, but is associated with a variable whose data type is function_handle . Anonymous functions can accept inputs and return outputs, just as standard functions do. However, they can contain only a single executable statement. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+                          <code>
+                              var selam = function(a,b){
+                              return (a * b);
+                              }
+                          </code>
+                      </div>
+                  </div>
+                  <!--global import-->
+                  <div class="bigWord GlobalImport">
+                      Explain why the scope of a variable with out the keyword var is global?
+                      <div class="defn GlobalImport">
+                          JavaScript has a feature known as implied globals. Whenever a name is used, the interpreter walks the scope chain backwards looking for a var statement for that name. If none is found, that variable is assumed to be global.
+                          <code></code>
+                      </div>
+                  </div>
+                  <!--module pattern vs classical inheritance-->
+                  <div class="bigWord DesignPattern">
+                      How do you organize your code? (module pattern, classical inheritance?)
+                      <div class="defn DesignPattern">
+                          A pattern is a reusable solution that can be applied to commonly occurring problems in software design. Examples Templates. Patterns don’t solve all design problems nor do they replace good software designers, however, they do support them.
+                          <veryImportant style=" font-style: italic;display:block; border:0.2em #123456 dashed; padding:0.5em">
+                              A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design.
+                          </veryImportant>
+                          <code>
+                              (function(){ //code })();
+                          </code>
+                          <veryImportant style=" font-style: italic;display:block; border:0.2em #123456 dashed; padding:0.5em">
+                              The above code it decalres a function and then calls itself immediately i.e. <strong>IIFE - immediately invoked function expression</strong>, the function creates new scope and privacy
+                          </veryImportant>
+                          <code>
+                              var module = (function(){ //code })();
+                          </code>
+                          <veryImportant style=" font-style: italic;display:block; border:0.2em #123456 dashed; padding:0.5em">
+                              Module pattern makes scoping a breeze, makes things simple and easy to read, uses objects in a very nice way.
+                          </veryImportant>
+                          <code>
+                              var Module = (function () { <br />
+                              var privateMethod = function () { // private};<br />
+                              var someMethod = function () { // public };<br />
+                              var anotherMethod = function () { // public };<br />
+                              return {
+                              someMethod: someMethod,anotherMethod: anotherMethod
+                              };
+                              })();
+                          </code>
+      
+      
+                      </div>
+                  </div>
+                  <!--host objects vs native ojects-->
+                  <div class="bigWord HostNativeObjects">
+                      What's the difference between host objects and native objects?
+                      <div class="defn HostNativeObjects">
+                          In JS every element that holds properties and methods is an object except primitive data types.
+                          There are three object categories in JavaScript: Native Objects, Host Objects, and User-Defined Objects.
+                          Native objects are those objects supplied by JavaScript, whose semantics are fully defined by ECMAScript specification rather than by the host environment.. Examples of these are String, Number, Array, Image, Date, Math, Object (constructor), parseInt, eval, string methods like indexOf and replace, array methodsetc.
+                          Host objects are objects that are supplied to JavaScript by the browser (host) environment. Examples of these are window, document, forms, location, history, XMLHttpRequest, setTimeout, getElementsByTagName, querySelectorAll etc.
+                          User-defined objects are those that are defined by the programmer.
+                          <code></code>
+                      </div>
+                  </div>
+            </div
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="resources/scripts.js"></script>
+      <script src="resources/exercise.js"></script>
+</body>
+</html>
